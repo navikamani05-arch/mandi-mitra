@@ -1,0 +1,212 @@
+[
+    {
+        "id":  "nashik_demo_village",
+        "display_name":  "Village near Nashik",
+        "state":  "Maharashtra",
+        "latitude":  20.015,
+        "longitude":  73.79,
+        "distances_km":  {
+                             "Nashik APMC":  5,
+                             "Pune Market Yard":  45,
+                             "Lasalgaon Mandi":  20,
+                             "Koyambedu Market, Chennai":  1170,
+                             "Madurai Mandi":  1030,
+                             "Coimbatore Market":  1080,
+                             "KR Market, Bengaluru":  980,
+                             "Hubballi APMC":  720,
+                             "Ludhiana Grain Market":  1370,
+                             "Jalandhar APMC":  1420,
+                             "Lucknow APMC":  1120,
+                             "Kanpur Mandi":  1090
+                         }
+    },
+    {
+        "id":  "pune_demo_village",
+        "display_name":  "Village near Pune",
+        "state":  "Maharashtra",
+        "latitude":  18.52,
+        "longitude":  73.86,
+        "distances_km":  {
+                             "Nashik APMC":  205,
+                             "Pune Market Yard":  12,
+                             "Lasalgaon Mandi":  235,
+                             "Koyambedu Market, Chennai":  1180,
+                             "Madurai Mandi":  1110,
+                             "Coimbatore Market":  1010,
+                             "KR Market, Bengaluru":  850,
+                             "Hubballi APMC":  630,
+                             "Ludhiana Grain Market":  1470,
+                             "Jalandhar APMC":  1520,
+                             "Lucknow APMC":  1290,
+                             "Kanpur Mandi":  1250
+                         }
+    },
+    {
+        "id":  "coimbatore_demo_village",
+        "display_name":  "Village near Coimbatore",
+        "state":  "Tamil Nadu",
+        "latitude":  11.02,
+        "longitude":  76.96,
+        "distances_km":  {
+                             "Nashik APMC":  1080,
+                             "Pune Market Yard":  1010,
+                             "Lasalgaon Mandi":  1050,
+                             "Koyambedu Market, Chennai":  510,
+                             "Madurai Mandi":  230,
+                             "Coimbatore Market":  15,
+                             "KR Market, Bengaluru":  350,
+                             "Hubballi APMC":  770,
+                             "Ludhiana Grain Market":  2700,
+                             "Jalandhar APMC":  2750,
+                             "Lucknow APMC":  2090,
+                             "Kanpur Mandi":  2050
+                         }
+    },
+    {
+        "id":  "madurai_demo_village",
+        "display_name":  "Village near Madurai",
+        "state":  "Tamil Nadu",
+        "latitude":  9.93,
+        "longitude":  78.12,
+        "distances_km":  {
+                             "Nashik APMC":  1030,
+                             "Pune Market Yard":  1110,
+                             "Lasalgaon Mandi":  1010,
+                             "Koyambedu Market, Chennai":  460,
+                             "Madurai Mandi":  18,
+                             "Coimbatore Market":  230,
+                             "KR Market, Bengaluru":  430,
+                             "Hubballi APMC":  840,
+                             "Ludhiana Grain Market":  2800,
+                             "Jalandhar APMC":  2850,
+                             "Lucknow APMC":  2200,
+                             "Kanpur Mandi":  2160
+                         }
+    },
+    {
+        "id":  "bengaluru_demo_village",
+        "display_name":  "Village near Bengaluru",
+        "state":  "Karnataka",
+        "latitude":  12.97,
+        "longitude":  77.6,
+        "distances_km":  {
+                             "Nashik APMC":  980,
+                             "Pune Market Yard":  850,
+                             "Lasalgaon Mandi":  940,
+                             "Koyambedu Market, Chennai":  360,
+                             "Madurai Mandi":  430,
+                             "Coimbatore Market":  350,
+                             "KR Market, Bengaluru":  8,
+                             "Hubballi APMC":  430,
+                             "Ludhiana Grain Market":  2050,
+                             "Jalandhar APMC":  2100,
+                             "Lucknow APMC":  1720,
+                             "Kanpur Mandi":  1680
+                         }
+    },
+    {
+        "id":  "hubballi_demo_village",
+        "display_name":  "Village near Hubballi",
+        "state":  "Karnataka",
+        "latitude":  15.36,
+        "longitude":  75.12,
+        "distances_km":  {
+                             "Nashik APMC":  720,
+                             "Pune Market Yard":  560,
+                             "Lasalgaon Mandi":  620,
+                             "Koyambedu Market, Chennai":  840,
+                             "Madurai Mandi":  910,
+                             "Coimbatore Market":  770,
+                             "KR Market, Bengaluru":  420,
+                             "Hubballi APMC":  12,
+                             "Ludhiana Grain Market":  1950,
+                             "Jalandhar APMC":  2000,
+                             "Lucknow APMC":  1560,
+                             "Kanpur Mandi":  1520
+                         }
+    },
+    {
+        "id":  "ludhiana_demo_village",
+        "display_name":  "Village near Ludhiana",
+        "state":  "Punjab",
+        "latitude":  30.91,
+        "longitude":  75.86,
+        "distances_km":  {
+                             "Nashik APMC":  1350,
+                             "Pune Market Yard":  1470,
+                             "Lasalgaon Mandi":  1400,
+                             "Koyambedu Market, Chennai":  2600,
+                             "Madurai Mandi":  2700,
+                             "Coimbatore Market":  2550,
+                             "KR Market, Bengaluru":  2050,
+                             "Hubballi APMC":  1850,
+                             "Ludhiana Grain Market":  10,
+                             "Jalandhar APMC":  90,
+                             "Lucknow APMC":  390,
+                             "Kanpur Mandi":  430
+                         }
+    },
+    {
+        "id":  "jalandhar_demo_village",
+        "display_name":  "Village near Jalandhar",
+        "state":  "Punjab",
+        "latitude":  31.33,
+        "longitude":  75.58,
+        "distances_km":  {
+                             "Nashik APMC":  1420,
+                             "Pune Market Yard":  1520,
+                             "Lasalgaon Mandi":  1470,
+                             "Koyambedu Market, Chennai":  2680,
+                             "Madurai Mandi":  2780,
+                             "Coimbatore Market":  2620,
+                             "KR Market, Bengaluru":  2100,
+                             "Hubballi APMC":  1900,
+                             "Ludhiana Grain Market":  90,
+                             "Jalandhar APMC":  10,
+                             "Lucknow APMC":  430,
+                             "Kanpur Mandi":  470
+                         }
+    },
+    {
+        "id":  "lucknow_demo_village",
+        "display_name":  "Village near Lucknow",
+        "state":  "Uttar Pradesh",
+        "latitude":  26.85,
+        "longitude":  80.95,
+        "distances_km":  {
+                             "Nashik APMC":  1120,
+                             "Pune Market Yard":  1290,
+                             "Lasalgaon Mandi":  1150,
+                             "Koyambedu Market, Chennai":  1750,
+                             "Madurai Mandi":  1850,
+                             "Coimbatore Market":  1710,
+                             "KR Market, Bengaluru":  1680,
+                             "Hubballi APMC":  1520,
+                             "Ludhiana Grain Market":  390,
+                             "Jalandhar APMC":  430,
+                             "Lucknow APMC":  15,
+                             "Kanpur Mandi":  110
+                         }
+    },
+    {
+        "id":  "kanpur_demo_village",
+        "display_name":  "Village near Kanpur",
+        "state":  "Uttar Pradesh",
+        "latitude":  26.45,
+        "longitude":  80.33,
+        "distances_km":  {
+                             "Nashik APMC":  1090,
+                             "Pune Market Yard":  1250,
+                             "Lasalgaon Mandi":  1120,
+                             "Koyambedu Market, Chennai":  1720,
+                             "Madurai Mandi":  1820,
+                             "Coimbatore Market":  1680,
+                             "KR Market, Bengaluru":  1650,
+                             "Hubballi APMC":  1500,
+                             "Ludhiana Grain Market":  430,
+                             "Jalandhar APMC":  470,
+                             "Lucknow APMC":  110,
+                             "Kanpur Mandi":  12
+                         }
+    }
+]
