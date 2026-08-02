@@ -20,6 +20,13 @@ from utils.presentation import feasible_snapshots_for_charts
 st.set_page_config(page_title="Mandi Mitra", page_icon="🌾", layout="wide")
 st.markdown("""
 <style>
+:root {
+    --mandi-text: #243126;
+    --mandi-muted-text: #4f6253;
+    --mandi-card: #ffffff;
+    --mandi-warning-bg: #fff4cc;
+    --mandi-warning-text: #4d3900;
+}
 .stApp {
     background:
         radial-gradient(circle at 12% 15%, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.06) 19%, transparent 35%),
@@ -27,7 +34,16 @@ st.markdown("""
         linear-gradient(120deg, #EAF3DE 0%, #F4F0DD 48%, #FAEEDA 100%);
     background-size: 220% 220%;
     animation: mandiGradient 14s ease-in-out infinite;
+    color: var(--mandi-text);
     will-change: background-position;
+}
+.stApp [data-testid="stMain"],
+.stApp [data-testid="stSidebar"],
+.stApp [data-testid="stSidebar"] > div {
+    color: var(--mandi-text);
+}
+.stApp [data-testid="stSidebar"] > div {
+    background: rgba(255, 255, 255, 0.96);
 }
 .stApp::before {
     content: "";
@@ -110,9 +126,33 @@ st.markdown("""
 .stSidebar .block-container {
     background: rgba(255, 255, 255, 0.96);
 }
-div[data-testid="stDataFrame"], div[data-testid="stExpander"] {
+div[data-testid="stDataFrame"], div[data-testid="stExpander"], div[data-testid="stStatusWidget"] {
     background: rgba(255, 255, 255, 0.96);
     border-radius: 0.7rem;
+    color: var(--mandi-text);
+}
+div[data-testid="stExpander"] summary,
+div[data-testid="stExpander"] summary *,
+div[data-testid="stExpander"] [data-testid="stMarkdownContainer"],
+div[data-testid="stExpander"] [data-testid="stMarkdownContainer"] *,
+div[data-testid="stStatusWidget"],
+div[data-testid="stStatusWidget"] *,
+div[data-testid="stAlert"] [data-testid="stMarkdownContainer"],
+div[data-testid="stAlert"] [data-testid="stMarkdownContainer"] * {
+    color: var(--mandi-text) !important;
+}
+div[data-testid="stStatusWidget"] {
+    border: 1px solid #c9dcc5;
+}
+.stApp [data-testid="stMarkdownContainer"] p,
+.stApp [data-testid="stMarkdownContainer"] li,
+.stApp [data-testid="stMarkdownContainer"] span,
+.stApp label,
+.stApp [data-testid="stCaptionContainer"] {
+    color: var(--mandi-text);
+}
+.stApp [data-testid="stCaptionContainer"] {
+    color: var(--mandi-muted-text);
 }
 .mandi-wordmark {
     align-items: center;
@@ -140,6 +180,16 @@ div[data-testid="stDataFrame"], div[data-testid="stExpander"] {
 .recommendation-badge { border-radius: 999px; display: inline-block; font-weight: 700; padding: 0.35rem 0.8rem; }
 .sell-badge { background: #dcefdc; color: #1d6229; }
 .wait-badge { background: #fff0c9; color: #895800; }
+.mandi-disclaimer {
+    background: var(--mandi-warning-bg);
+    border: 1px solid #e6c968;
+    border-radius: 0.5rem;
+    color: var(--mandi-warning-text);
+    font-weight: 500;
+    margin: 0.75rem 0 1rem;
+    padding: 0.85rem 1rem;
+}
+.mandi-disclaimer * { color: var(--mandi-warning-text); }
 
 @keyframes mandiGradient {
     0% { background-position: 0% 50%; }
@@ -180,7 +230,10 @@ with st.expander("How this works"):
         "Price Data retrieves local mandi history, Decision compares only feasible markets and estimates a short trend, "
         "and Message drafts an offline Hindi or Tamil sales message. Every recommendation is an estimate."
     )
-st.warning("Price recommendations are estimates. Verify current mandi prices and actual transport costs before selling. Tamil Nadu market prices are illustrative demo data.")
+st.markdown(
+    '<div class="mandi-disclaimer">Price recommendations are estimates. Verify current mandi prices and actual transport costs before selling. Tamil Nadu market prices are illustrative demo data.</div>',
+    unsafe_allow_html=True,
+)
 
 locations = load_farm_locations(FARM_LOCATION_PATH)
 locations_by_state: dict[str, tuple[FarmLocation, ...]] = {
