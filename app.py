@@ -305,8 +305,8 @@ if run:
                 st.warning(f"Please review the inputs: {error}")
         except Exception as error:
             progress.update(label="Workflow could not complete", state="error")
-            if "not cached locally" in str(error):
-                st.error("The offline vision model has not been prepared on this device. Run the one-time model cache setup before the demo.")
+            if "could not be downloaded" in str(error):
+                st.error("The vision model could not be downloaded. Check the connection and try again.")
             else:
                 st.error("Mandi Mitra could not complete this analysis. Please try another clear image or review the selected inputs.")
         else:

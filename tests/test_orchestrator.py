@@ -5,7 +5,7 @@ from pipeline.orchestrator import MandiMitraPipeline
 
 
 class StubVision:
-    def analyze(self, _image):
+    def analyze(self, _image, on_model_download=None):
         return VisionResult("tomato", 0.9, "A", False, ("Stub vision result.",))
 
 

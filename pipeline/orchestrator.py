@@ -37,7 +37,12 @@ class MandiMitraPipeline:
             if on_step:
                 on_step(agent, summary)
 
-        vision = self.vision.analyze(image)
+        vision = self.vision.analyze(
+            image,
+            on_model_download=lambda: report(
+                "Vision Agent", "Downloading model, first run may take a minute."
+            ),
+        )
         crop = manual_crop or vision.crop
         trail: list[dict[str, object]] = [{"step": "vision", "result": vision.reasoning}]
         log_step(self.logger, "vision", {"crop": vision.crop, "confidence": vision.confidence, "manual_required": vision.requires_manual_crop_selection})

@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
+
 from PIL import Image
 
 from config.settings import CLIP_MODEL_ID, SUPPORTED_CROPS, VISION_CONFIDENCE_THRESHOLD
@@ -14,7 +16,7 @@ class VisionModuleError(RuntimeError):
 
 
 def _load_clip(model_path_or_id: str, local_files_only: bool):
-    """Lazy import keeps price-only tests independent of ML dependencies."""
+    """Load CLIP either from the local cache or, when permitted, Hugging Face."""
     try:
         from transformers import CLIPModel, CLIPProcessor
     except ImportError as error:  # pragma: no cover - depends on runtime install
@@ -25,9 +27,8 @@ def _load_clip(model_path_or_id: str, local_files_only: bool):
             CLIPProcessor.from_pretrained(model_path_or_id, local_files_only=local_files_only),
         )
     except OSError as error:  # pragma: no cover - depends on local model cache
-        raise VisionModuleError(
-            "The CLIP model is not cached locally. Run scripts/cache_vision_model.py while online before demo day."
-        ) from error
+        source = "local cache" if local_files_only else "model download"
+        raise VisionModuleError(f"Could not load the CLIP model from the {source}.") from error
 
 
 def _grade(confidence: float, color_uniformity: float, dark_region_fraction: float) -> str:
@@ -47,13 +48,29 @@ class VisionModule:
         self._model = None
         self._processor = None
 
-    def _ensure_loaded(self) -> None:
+    def _ensure_loaded(self, on_model_download: Callable[[], None] | None = None) -> None:
         if self._model is None or self._processor is None:
-            self._model, self._processor = _load_clip(self.model_id, local_files_only=True)
+            try:
+                self._model, self._processor = _load_clip(self.model_id, local_files_only=True)
+            except VisionModuleError:
+                if on_model_download:
+                    on_model_download()
+                try:
+                    self._model, self._processor = _load_clip(self.model_id, local_files_only=False)
+                except VisionModuleError as download_error:
+                    raise VisionModuleError(
+                        "The CLIP model is not cached locally and could not be downloaded. "
+                        "Check the internet connection and try again."
+                    ) from download_error
             self._model.eval()
 
-    def analyze(self, image: Image.Image) -> VisionResult:
-        self._ensure_loaded()
+    def analyze(
+        self,
+        image: Image.Image,
+        on_model_download: Callable[[], None] | None = None,
+    ) -> VisionResult:
+        """Classify a crop, downloading CLIP on the first cloud run if needed."""
+        self._ensure_loaded(on_model_download=on_model_download)
         prompts = [f"a clear photo of fresh {crop}" for crop in SUPPORTED_CROPS]
         inputs = self._processor(text=prompts, images=image.convert("RGB"), return_tensors="pt", padding=True)
         import torch
